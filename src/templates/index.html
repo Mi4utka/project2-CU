@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Погода</title>
+    <style>
+        body {
+            background-color: #f7f7f7; /* Легкий нейтральный фон */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .container {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            animation: fadeIn 0.5s ease-out;
+        }
+        h1 {
+            margin-bottom: 30px;
+            color: #4a4a4a;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+        label {
+            display: block;
+            margin: 12px 0;
+            font-size: 1.1rem;
+            color: #555555;
+            text-align: left;
+        }
+        input {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: calc(100% - 20px); /* Чтобы поля не выходили за пределы */
+            margin-top: 5px;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        input:focus {
+            border-color: #ff6f61; /* Цвет рамки при фокусе */
+        }
+        button {
+            margin-top: 30px;
+            padding: 12px 25px;
+            background-color: #ff6f61;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        button:hover {
+            background-color: #e85f52;
+            transform: translateY(-3px);
+        }
+        button:active {
+            background-color: #e14d3d;
+            transform: translateY(0);
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Введите координаты</h1>
+        <form method="POST">
+            <label>Широта начальной точки: <input type="text" name="start_lat" required></label>
+            <label>Долгота начальной точки: <input type="text" name="start_lon" required></label>
+            <label>Широта конечной точки: <input type="text" name="end_lat" required></label>
+            <label>Долгота конечной точки: <input type="text" name="end_lon" required></label>
+            <button type="submit">Получить прогноз</button>
+        </form>
+    </div>
+</body>
+</html>
